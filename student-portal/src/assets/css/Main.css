@@ -23,7 +23,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    max-width: 1300px;
+    max-width: 1500px;
     margin: 0 auto; /* Center align the grid within the main container */
 }
 
