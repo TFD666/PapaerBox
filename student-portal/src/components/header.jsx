@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import '../assets/css/Header.css';
+import PopupForm from './PopupForm.jsx';
 import '../App.js';
 
-
-function Header({ openForm }) {
+function Header() {
   const [navVisible, setNavVisible] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
 
   const openNav = () => {
     setNavVisible(!navVisible);
   };
 
-  return (
-    
+  const openForm = () => {
+    setFormVisible(true);
+  };
+
+  const closeForm = () => {
+    setFormVisible(false);
+  }
+ return (
     <header>
-      
       <div className="menu-icon" onClick={openNav}>&#9776;</div>
       
       <div className="group">
@@ -32,6 +38,7 @@ function Header({ openForm }) {
           name="searchbar"
         />
       </div>
+      
       <button className="button" onClick={openForm}>
         <svg
           id="UploadToCloud"
@@ -50,6 +57,7 @@ function Header({ openForm }) {
         </svg>
         <span className="upload-text">Upload</span>
       </button>
+      {formVisible && <PopupForm closeForm={closeForm} />}
       <label class="popup">
           <input type="checkbox" />
           <div tabindex="0" class="burger">
