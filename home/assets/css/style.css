@@ -70,7 +70,7 @@ header, nav, section, article, aside, footer, hgroup {
 html, body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  background-image: linear-gradient(133.84deg, #272727 -16.04%, #333333 9.33%, #1A1A1A 32.02%, #1A1A1A 62.06%, #262626 87.42%, #4E4E4E 112.12%);
+  background-image: linear-gradient(133.84deg,#000 -16.04%, #333333 9.33%, #1A1A1A 32.02%, #1A1A1A 62.06%, #262626 87.42%, #4E4E4E 112.12%);
 
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -109,7 +109,7 @@ global styles
 */
 html,
 body {
-  background-image: linear-gradient(133.84deg, #242323 -16.04%, #222222 9.33%, #1a1a1a 32.02%, #1A1A1A 62.06%, #262626 87.42%, #131313 112.12%);
+  background-image: linear-gradient(133.84deg, #000000 -16.04%, #000000 9.33%, #1a1a1a 32.02%, #1A1A1A 62.06%, #262626 87.42%, #131313 112.12%);
 
   font-family: 'Poppins', sans-serif;
 }
