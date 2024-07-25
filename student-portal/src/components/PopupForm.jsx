@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/css/PopupForm.css';
+import '../App.js';
 
 function PopupForm({ isOpen, onClose }) {
   if (!isOpen) return null;
