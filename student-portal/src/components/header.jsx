@@ -34,8 +34,12 @@ function Header() {
           name="searchbar"
         />
       </div>
+<<<<<<< HEAD
       
       <button className="button" onClick={handleButtonClick}>
+=======
+      <button className="button" onClick={() => openForm()}>
+>>>>>>> 548ed15 (commit)
         <svg
           id="UploadToCloud"
           viewBox="0 0 24 24"
