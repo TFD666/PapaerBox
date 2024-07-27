@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import '../assets/css/PopupForm.css';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 function PopupForm({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -8,7 +12,8 @@ function PopupForm({ isOpen, onClose }) {
     semester: '',
     notesType: '',
     description: '',
-    file: null
+    file: null,
+    fileName: ''
   });
 
   if (!isOpen) return null;
@@ -19,7 +24,12 @@ function PopupForm({ isOpen, onClose }) {
   };
 
   const handleFileChange = (e) => {
-    setFormData({ ...formData, file: e.target.files[0] });
+    const file = e.target.files[0];
+    setFormData({ ...formData, file: file, fileName: file.name });
+  };
+
+  const handleRemoveFile = () => {
+    setFormData({ ...formData, file: null, fileName: '' });
   };
 
   const handleSubmit = async (e) => {
@@ -33,17 +43,34 @@ function PopupForm({ isOpen, onClose }) {
     data.append('file', formData.file);
 
     try {
-      await axios.post('http://localhost:3000/upload', data, {
+      await axios.post('http://localhost:5000/upload', data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      alert('File uploaded successfully.');
-    } catch (error) {
-      alert('Error uploading file.');
-    }
+      
+      onClose(); // Close the form immediately upon successful upload
 
-    onClose();
+      MySwal.fire({
+        icon: 'success',
+        title: 'Upload Successful',
+        text: 'Your file has been uploaded successfully.',
+        confirmButtonText: 'OK',
+        background: '#1d1d1d', // Dark background
+        color: '#fffae4', // Text color
+        confirmButtonColor: '#fffae4af', // Custom button color
+      });
+    } catch (error) {
+      MySwal.fire({
+        icon: 'error',
+        title: 'Upload Failed',
+        text: 'There was an error uploading your file.',
+        confirmButtonText: 'OK',
+        background: '#1d1d1d', // Dark background
+        color: '#fffae4', // Text color
+        confirmButtonColor: '#fffae4af', // Custom button color
+      });
+    }
   };
 
   return (
@@ -110,6 +137,13 @@ function PopupForm({ isOpen, onClose }) {
             </div>
             <input type="file" name="file" onChange={handleFileChange} required />
           </label>
+
+          {formData.file && (
+            <div className="file-info">
+              <p>{formData.fileName}</p>
+              <button type="button" onClick={handleRemoveFile}>Remove</button>
+            </div>
+          )}
 
           <button type="submit">
             <b>Upload</b>
