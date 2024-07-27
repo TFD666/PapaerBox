@@ -64,7 +64,7 @@ input[type="file"] {
 input[type="text"]::placeholder,
 select option,
 textarea::placeholder {
-  color: #f1f1f1;
+  color: #f1f1f18f;
 }
 
 textarea {
