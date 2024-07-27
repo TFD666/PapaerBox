@@ -10,10 +10,7 @@ const semesters = [
 
 function Main() {
   const [selectedSemester, setSelectedSemester] = useState(null);
-<<<<<<< HEAD
   const [openDropdown, setOpenDropdown] = useState(null);
-=======
->>>>>>> 548ed15 (commit)
 
   const handleClick = (semester) => {
     setSelectedSemester(semester);
@@ -21,14 +18,11 @@ function Main() {
 
   const closePopup = () => {
     setSelectedSemester(null);
-<<<<<<< HEAD
     setOpenDropdown(null);
   };
 
   const handleFolderClick = (folder) => {
     setOpenDropdown(openDropdown === folder ? null : folder);
-=======
->>>>>>> 548ed15 (commit)
   };
 
   return (
@@ -43,7 +37,6 @@ function Main() {
       {selectedSemester && (
         <div className="popupp">
           <div className="popupp-content">
-<<<<<<< HEAD
             <span className="close" onClick={closePopup}>&times;</span>
             <h2>{selectedSemester}</h2>
             <div className="folders">
@@ -80,15 +73,6 @@ function Main() {
                 Sample Papers
                 {/* Add dropdown items if needed */}
               </div>
-=======
-            <span className="closee" onClick={closePopup}>&times;</span>
-            <h2>{selectedSemester}</h2>
-            <div className="folders">
-              <div className="folder"> <i className="fas fa-folder"></i>Study Materials</div>
-              <div className="folder"> <i className="fas fa-folder"></i>Previous Year Papers</div>
-              <div className="folder"> <i className="fas fa-folder"></i>Syllabus</div>
-              <div className="folder"> <i className="fas fa-folder"></i>Assignments</div>
->>>>>>> 548ed15 (commit)
             </div>
           </div>
         </div>
