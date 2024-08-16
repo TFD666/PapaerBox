@@ -45,8 +45,8 @@ main {
 
 
 .semester:hover {
-  background-image: linear-gradient(220.55deg, #fffae4af 0%, #8B8B8B 100%);
-  color: #2C2C2C;
+  background-image: linear-gradient(220.55deg, #f25608 0%, #ff650c 100%);
+  color: #000000;
   transform: scale(1.05);
 }
 
