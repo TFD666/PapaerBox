@@ -8,12 +8,12 @@ const MySwal = withReactContent(Swal);
 
 function PopupForm({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
-    subject: '',
-    semester: '',
-    notesType: '',
-    description: '',
+    subject: ' ',
+    semester: ' ',
+    notesType: ' ',
+    description: ' ',
     file: null,
-    fileName: ''
+    fileName: ' '
   });
 
   if (!isOpen) return null;

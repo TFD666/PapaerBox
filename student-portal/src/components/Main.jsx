@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../assets/css/Main.css';
+import { subjectLinks } from './data'; // Import subject links
 
 const semesters = [
   "CHE110", "CSE111", "CSE326", "ECE249", "ECE279", "INT108", "MTH174", "PES318",
@@ -8,7 +9,7 @@ const semesters = [
   "CSE310", "CSE316", "CSE325", "CSE408", "INT330", "INT362", "INT426", "PEA305"
 ];
 
-function Main() {
+function Main({ searchQuery }) {
   const [selectedSemester, setSelectedSemester] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -25,10 +26,15 @@ function Main() {
     setOpenDropdown(openDropdown === folder ? null : folder);
   };
 
+  // Filter semesters based on the search query
+  const filteredSemesters = semesters.filter((semester) =>
+    semester.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <main>
       <section className="semesters">
-        {semesters.map((semester, index) => (
+        {filteredSemesters.map((semester, index) => (
           <div className="semester" key={index} onClick={() => handleClick(semester)}>
             {semester}
           </div>
@@ -50,7 +56,6 @@ function Main() {
                   <div className="dropdown-item">Unit 4</div>
                   <div className="dropdown-item">Unit 5</div>
                   <div className="dropdown-item">Unit 6</div>
-                 
                 </div>
               </div>
               <div className="folder" onClick={() => handleFolderClick('previousYearPapers')}>
@@ -59,19 +64,20 @@ function Main() {
                 <div className={`dropdown-menu ${openDropdown === 'previousYearPapers' ? 'show' : ''}`}>
                   <div className="dropdown-item">Mid Term</div>
                   <div className="dropdown-item">End Term</div>
-                  
-                  {/* Add more years as needed */}
                 </div>
               </div>
               <div className="folder" onClick={() => handleFolderClick('syllabus')}>
                 <i className="fas fa-folder"></i>
                 Syllabus
-                {/* Add dropdown items if needed */}
+                <div className="dropdown-menu">
+                  <a href={subjectLinks[selectedSemester]} target="_blank" rel="noopener noreferrer" className="dropdown-item">
+                    View Syllabus
+                  </a>
+                </div>
               </div>
               <div className="folder" onClick={() => handleFolderClick('assignments')}>
                 <i className="fas fa-folder-open"></i>
                 Sample Papers
-                {/* Add dropdown items if needed */}
               </div>
             </div>
           </div>
