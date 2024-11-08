@@ -5,9 +5,11 @@ import { subjectLinks } from './data'; // Import subject links
 const semesters = [
   "CHE110", "CSE111", "CSE326", "ECE249", "ECE279", "INT108", "MTH174", "PES318",
   "CSE101", "CSE121", "CSE320", "INT306", "MEC135", "PHY110", "MTH401", "PEL130",
-  "CSE202", "CSE205", "CSE211", "CSE306", "CSE307", "PEL134", "MTH302",
-  "CSE310", "CSE316", "CSE325", "CSE408", "INT330", "INT362", "INT426", "PEA305"
+  "CSE202", "CSE205", "CSE211", "CSE306", "CSE307", "PEL134", "MTH302", "CSE322",
+  "CSE310", "CSE316", "CSE325", "CSE408", "INT330", "INT362", "INT426", "PEA305",
+  "ERT432", "INT233", "INT234", "PEA306", "PEV113"
 ];
+
 
 function Main({ searchQuery }) {
   const [selectedSemester, setSelectedSemester] = useState(null);
